@@ -9,6 +9,13 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
+    manifest: true,
+  },
+  css:{
+    devSourcemap: true,
+    modules:{
+      localsConvention: 'camelCaseOnly',
+    }
   },
   base: '/'
 })
