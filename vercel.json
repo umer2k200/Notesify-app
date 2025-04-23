@@ -6,21 +6,24 @@
         "use": "@vercel/static-build",
         "config": {
           "distDir": "dist",
-          "cleanDistDir": true,
-          "includeFiles": ["**/*.css"]
+          "cleanDistDir": true
           
         }
       }
     ],
     "routes": [
     {
-      "src": "/assets/(.*)",
+      "src": "/assets/(.+\\.css)",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable",
-         "Content-Type": {
-            ".css" : "text/css",
-            ".js" : "application/javascript"
-            } 
+         "Content-Type": "text/css"
+        }
+    },
+    {
+        "src": "/assets/(.+\\.js)",
+        "headers": {
+          "Cache-Control": "public, max-age=31536000, immutable",
+          "Content-Type": "application/javascript"
         }
     },
     {
